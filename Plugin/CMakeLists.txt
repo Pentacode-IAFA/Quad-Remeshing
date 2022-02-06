@@ -7,7 +7,7 @@ endif()
 set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
-project(MeshProcessingPlugin VERSION 1.0.0)
+project(QuadRemeshingPlugin VERSION 1.0.0)
 
 if(APPLE)
     cmake_policy(SET CMP0042 NEW)
@@ -52,9 +52,9 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_EXPORTS)
 
 target_link_libraries(
     ${PROJECT_NAME} Radium::Core Radium::Engine Radium::Gui Radium::PluginBase ${Qt5_LIBRARIES}
-    RadiumMeshProcessing
+    QuadRemeshing
 )
 
 # -----------------------------------------------------------------------------------
 # Radium plugin configuration : manage package and installation
-configure_radium_plugin(NAME ${PROJECT_NAME} HELPER_LIBS RadiumMeshProcessing INSTALL_IN_RADIUM_BUNDLE)
+configure_radium_plugin(NAME ${PROJECT_NAME} HELPER_LIBS QuadRemeshing INSTALL_IN_RADIUM_BUNDLE)

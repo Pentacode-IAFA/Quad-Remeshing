@@ -17,7 +17,7 @@ if(NOT CMAKE_BUILD_TYPE)
     message("Set default build type to ${CMAKE_BUILD_TYPE}")
 endif()
 
-project(RadiumMeshProcessing VERSION 1.0.0)
+project(QuadRemeshing VERSION 1.0.0)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/installed-${CMAKE_CXX_COMPILER_ID}"
@@ -35,7 +35,7 @@ set(markdowns README.md)
 set(sources RadiumMeshProcessing.cpp)
 set(public_headers RadiumMeshProcessing.hpp)
 set(headers PrivateHeader.hpp)
-set(resources MeshProcessingResources/welcome.txt)
+set(resources QuadRemeshingResources/welcome.txt)
 # Our library project uses these sources and headers.
 add_library(
     ${PROJECT_NAME} SHARED ${sources} ${headers} ${public_headers} ${markdowns} ${resources}
@@ -60,5 +60,5 @@ configure_radium_library(
 
 install_target_resources(
     TARGET ${PROJECT_NAME}
-    RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/MeshProcessingResources
+    RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/QuadRemeshingResources
 )
