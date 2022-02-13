@@ -1,5 +1,5 @@
 
-#include <PrivateHeader.hpp>
+#include "PrivateHeader.hpp"
 #include <RadiumMeshProcessing.hpp>
 
 #include <Core/Resources/Resources.hpp>
@@ -167,6 +167,10 @@ void LaplacianSmoothing(ProcessingParameter p) {
     LOG(logINFO) << "End processing trianglemesh" << trianglemesh->getName();
   }
   delete topologicalMesh;
+}
+
+void LaplacianSmoothing(int value) {
+  std::cout << "Called custom function, got value: " << value << std::endl;
 }
 
 } // namespace RadiumMeshProcessing
