@@ -4,9 +4,9 @@
 
 /// Defines the correct macro to export dll symbols.
 #if defined RadiumMeshProcessing_EXPORTS
-#    define RadiumMeshProcessing_API DLL_EXPORT
+#define RadiumMeshProcessing_API DLL_EXPORT
 #else
-#    define RadiumMeshProcessing_API DLL_IMPORT
+#define RadiumMeshProcessing_API DLL_IMPORT
 #endif
 
 #include <string>
@@ -14,16 +14,19 @@
 namespace RadiumMeshProcessing {
 
 struct ProcessingParameter {
-    std::string entityName;
-    std::string componentName;
+  std::string entityName;
+  std::string componentName;
 };
-
 
 RadiumMeshProcessing_API bool initializeRadiumMeshProcessing();
 RadiumMeshProcessing_API bool finalizeRadiumMeshProcessing();
 
-RadiumMeshProcessing_API void RadiumMeshProcessingWelcome( const std::string& message );
+RadiumMeshProcessing_API void
+RadiumMeshProcessingWelcome(const std::string &message);
 
-RadiumMeshProcessing_API void LaplacianSmoothing( ProcessingParameter p );
+RadiumMeshProcessing_API void LaplacianSmoothing(ProcessingParameter p);
+
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+RadiumMeshProcessing_API void customFonction(int value);
 
 } // namespace RadiumMeshProcessing
