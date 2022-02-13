@@ -169,6 +169,7 @@ void LaplacianSmoothing(ProcessingParameter p) {
   delete topologicalMesh;
 }
 
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 void LaplacianSmoothing(int value) {
   std::cout << "Called custom function, got value: " << value << std::endl;
 }
