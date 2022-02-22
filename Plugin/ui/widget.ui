@@ -34,13 +34,13 @@
                     </property>
                 </widget>
             </item>
-            <!-- <item row="1" column="0">
-                <widget class="QPushButton" name="_customBotton">
+            <item row="1" column="0">
+                <widget class="QPushButton" name="_customButton">
                     <property name="text">
                         <string>Custom</string>
                     </property>
                 </widget>
-            </item> -->
+            </item>
         </layout>
     </widget>
     <resources/>

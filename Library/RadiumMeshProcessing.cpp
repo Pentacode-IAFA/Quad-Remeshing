@@ -170,7 +170,7 @@ void LaplacianSmoothing(ProcessingParameter p) {
 }
 
 // <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-void LaplacianSmoothing(int value) {
+void customFonction(int value) {
   std::cout << "Called custom function, got value: " << value << std::endl;
 }
 
