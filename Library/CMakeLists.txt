@@ -32,8 +32,8 @@ message(STATUS " RadiumMeshProcessing : Searching for package Radium")
 find_package(Radium REQUIRED Core Engine)
 
 set(markdowns README.md)
-set(sources RadiumMeshProcessing.cpp)
-set(public_headers RadiumMeshProcessing.hpp)
+set(sources QuadRemeshing.cpp)
+set(public_headers QuadRemeshing.hpp)
 set(headers PrivateHeader.hpp)
 set(resources QuadRemeshingResources/welcome.txt)
 # Our library project uses these sources and headers.
