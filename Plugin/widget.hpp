@@ -2,6 +2,7 @@
 
 #include <QWidget>
 
+#include <Engine/Data/Mesh.hpp>
 #include <QuadRemeshing.hpp>
 
 namespace Ui {
@@ -39,12 +40,14 @@ private slots:
   void on__step4Button_clicked();
   void on__step5Button_clicked();
 
+  Ra::Engine::Data::Mesh *getSelectedMesh();
+
 private:
   Ui::MyWidget *ui;
 
   Ra::Engine::RadiumEngine *m_engine{nullptr};
   Ra::Gui::SelectionManager *m_selectionManager{nullptr};
-  // QuadRemesher m_remesher;
+  QuadRemeshing::QuadRemesher *m_remesher;
 };
 
 } // namespace QuadRemeshing

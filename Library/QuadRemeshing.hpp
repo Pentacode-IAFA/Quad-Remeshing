@@ -5,6 +5,8 @@
 
 #include <Core/CoreMacros.hpp>
 #include <Core/Geometry/IndexedGeometry.hpp>
+#include <Engine/Data/DisplayableObject.hpp>
+#include <Engine/Data/Mesh.hpp>
 
 /// Defines the correct macro to export dll symbols.
 #if defined QuadRemeshing_EXPORTS
@@ -27,16 +29,16 @@ public:
   QuadRemeshing_API QuadRemesher();
   QuadRemeshing_API ~QuadRemesher();
 
-  QuadRemeshing_API void setMesh(Ra::Core::Geometry::TriangleMesh *mesh);
+  QuadRemeshing_API void setMesh(Ra::Engine::Data::Mesh *mesh);
 
-  QuadRemeshing_API void setp1();
-  QuadRemeshing_API void setp2();
-  QuadRemeshing_API void setp3();
-  QuadRemeshing_API void setp4();
-  QuadRemeshing_API void setp5();
+  QuadRemeshing_API void step1();
+  QuadRemeshing_API void step2();
+  QuadRemeshing_API void step3();
+  QuadRemeshing_API void step4();
+  QuadRemeshing_API void step5();
 
 private:
-  Ra::Core::Geometry::TriangleMesh *m_mesh;
+  Ra::Engine::Data::Mesh *m_mesh;
 };
 
 QuadRemeshing_API Ra::Core::Geometry::PolyMesh *
