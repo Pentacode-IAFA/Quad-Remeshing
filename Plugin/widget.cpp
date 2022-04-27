@@ -27,19 +27,19 @@ void MyWidget::on__remeshButton_clicked() {
   LOG(Ra::Core::Utils::logINFO) << "Starting remesh";
 }
 void MyWidget::on__step1Button_clicked() {
+  m_remesher->step1();
+}
+void MyWidget::on__step2Button_clicked() {
+  LOG(Ra::Core::Utils::logINFO) << "Starting Step 2";
   LOG(Ra::Core::Utils::logINFO) << "Starting Step 1";
   auto mesh = getSelectedMesh();
 
   if (mesh) {
     m_remesher->setMesh(mesh);
-    m_remesher->step1();
+    m_remesher->step2();
   } else {
     LOG(Ra::Core::Utils::logINFO) << "WARNING: no mesh selected";
   }
-}
-void MyWidget::on__step2Button_clicked() {
-  LOG(Ra::Core::Utils::logINFO) << "Starting Step 2";
-  m_remesher->step2();
 }
 void MyWidget::on__step3Button_clicked() {
   LOG(Ra::Core::Utils::logINFO) << "Starting Step 3";
@@ -64,12 +64,11 @@ Ra::Engine::Data::Mesh *MyWidget::getSelectedMesh() {
   for (const auto &toProcess : objectsToProcess) {
     if (!(toProcess.isComponentNode() || toProcess.isRoNode())) {
       LOG(Ra::Core::Utils::logWARNING)
-          << "Laplacian processing only available for selected components or "
+          << "quad processing only available for selected components or "
              "renderobjects.";
       continue;
     }
 
-    // toProcess is a component, call laplacianSmoothing on it
     std::string entityName = toProcess.m_entity->getName();
     std::string componentName = toProcess.m_component->getName();
 
