@@ -408,11 +408,16 @@ QuadRemeshing_API void QuadRemesher::step1() {
     LOG(Ra::Core::Utils::logINFO)<<"--------------------- 1 - Remesh and field ---------------------";
     remeshAndField(trimesh, parameters, m_meshFilepath, sharpFilename, fieldFilename);
 }
+
 QuadRemeshing_API void QuadRemesher::step2() {
   LOG(Ra::Core::Utils::logINFO) << "Remesher: step2";
     LOG(Ra::Core::Utils::logINFO)<<"--------------------- 2 - Tracing ---------------------";
     TraceMesh traceTrimesh;
     trace(m_meshFilepath, traceTrimesh);
+}
+
+QuadRemeshing_API void QuadRemesher::step3() {
+  LOG(Ra::Core::Utils::logINFO) << "Remesher: step3";
     m_mesh->getAttribArrayGeometry().addAttrib("in_color",
                      Ra::Core::Vector4Array{m_mesh->getNumVertices(), Ra::Core::Utils::Color::White()});
 
@@ -444,9 +449,10 @@ QuadRemeshing_API void QuadRemesher::step2() {
 
   attrib.unlock();
 }
-QuadRemeshing_API void QuadRemesher::step3() {
-  LOG(Ra::Core::Utils::logINFO) << "Remesher: step3";
-  std::cout<<std::endl<<"--------------------- 3 - Quadrangulation ---------------------"<<std::endl;
+
+QuadRemeshing_API void QuadRemesher::step4() {
+    LOG(Ra::Core::Utils::logINFO) << "Remesher: step4";
+    std::cout<<std::endl<<"--------------------- 3 - Quadrangulation ---------------------"<<std::endl;
     TriangleMesh trimeshToQuadrangulate;
     std::vector<std::vector<size_t>> trimeshPartitions;
     std::vector<std::vector<size_t>> trimeshCorners;
@@ -458,12 +464,8 @@ QuadRemeshing_API void QuadRemesher::step3() {
     std::vector<std::vector<size_t>> quadmeshCorners;
     std::vector<int> ilpResult;
     quadrangulate(m_meshFilepath, trimeshToQuadrangulate, quadmesh, trimeshPartitions, trimeshCorners, trimeshFeatures, trimeshFeaturesC, quadmeshPartitions, quadmeshCorners, ilpResult, parameters);
-    
 }
 
-QuadRemeshing_API void QuadRemesher::step4() {
-  LOG(Ra::Core::Utils::logINFO) << "Remesher: step4";
-}
 QuadRemeshing_API void QuadRemesher::step5() {
   LOG(Ra::Core::Utils::logINFO) << "Remesher: step5";
 }

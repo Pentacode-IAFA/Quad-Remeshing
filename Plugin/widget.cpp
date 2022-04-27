@@ -27,23 +27,23 @@ void MyWidget::on__remeshButton_clicked() {
   LOG(Ra::Core::Utils::logINFO) << "Starting remesh";
 }
 void MyWidget::on__step1Button_clicked() {
+  LOG(Ra::Core::Utils::logINFO) << "Starting Step 1";
   m_remesher->step1();
 }
 void MyWidget::on__step2Button_clicked() {
   LOG(Ra::Core::Utils::logINFO) << "Starting Step 2";
-  LOG(Ra::Core::Utils::logINFO) << "Starting Step 1";
+  m_remesher->step2();
+}
+void MyWidget::on__step3Button_clicked() {
+  LOG(Ra::Core::Utils::logINFO) << "Starting Step 3";
   auto mesh = getSelectedMesh();
 
   if (mesh) {
     m_remesher->setMesh(mesh);
-    m_remesher->step2();
+    m_remesher->step3();
   } else {
     LOG(Ra::Core::Utils::logINFO) << "WARNING: no mesh selected";
   }
-}
-void MyWidget::on__step3Button_clicked() {
-  LOG(Ra::Core::Utils::logINFO) << "Starting Step 3";
-  m_remesher->step3();
 }
 void MyWidget::on__step4Button_clicked() {
   LOG(Ra::Core::Utils::logINFO) << "Starting Step 4";

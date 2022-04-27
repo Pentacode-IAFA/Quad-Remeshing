@@ -17,14 +17,14 @@
    <item row="3" column="0">
     <widget class="QPushButton" name="_step3Button">
      <property name="text">
-      <string>Step 3</string>
+      <string>Display patches</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0">
     <widget class="QPushButton" name="_step1Button">
      <property name="text">
-      <string>Step 1</string>
+      <string>Remesh and fields creation</string>
      </property>
     </widget>
    </item>
@@ -44,28 +44,28 @@
    <item row="0" column="0">
     <widget class="QPushButton" name="_remeshButton">
      <property name="text">
-      <string>Remesh</string>
+      <string>Full process</string>
      </property>
     </widget>
    </item>
    <item row="2" column="0">
     <widget class="QPushButton" name="_step2Button">
      <property name="text">
-      <string>Step 2</string>
+      <string>Tracing</string>
      </property>
     </widget>
    </item>
    <item row="4" column="0">
     <widget class="QPushButton" name="_step4Button">
      <property name="text">
-      <string>Step 4</string>
+      <string>Quadrangulate</string>
      </property>
     </widget>
    </item>
    <item row="5" column="0">
     <widget class="QPushButton" name="_step5Button">
      <property name="text">
-      <string>Step 5</string>
+      <string>Quad smoothing</string>
      </property>
     </widget>
    </item>
