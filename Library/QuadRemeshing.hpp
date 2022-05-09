@@ -17,6 +17,19 @@
 
 #include <string>
 
+struct Parameters {
+  Parameters()
+      : remesh(true), sharpAngle(35), alpha(0.02), scaleFact(1),
+        hasFeature(false), hasField(false) {}
+
+  bool remesh;
+  float sharpAngle;
+  float alpha;
+  float scaleFact;
+  bool hasFeature;
+  bool hasField;
+};
+
 namespace QuadRemeshing {
 
 struct QuadRemeshingParameter {
@@ -39,6 +52,9 @@ public:
 
 private:
   Ra::Engine::Data::Mesh *m_mesh;
+  std::string m_meshFilepath;
+  std::string m_setupPath;
+  Parameters parameters;
 };
 
 QuadRemeshing_API Ra::Core::Geometry::PolyMesh *

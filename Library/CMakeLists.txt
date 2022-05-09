@@ -32,8 +32,8 @@ message(STATUS " RadiumMeshProcessing : Searching for package Radium")
 find_package(Radium REQUIRED Core Engine)
 
 set(markdowns README.md)
-set(sources QuadRemeshing.cpp)
-set(public_headers QuadRemeshing.hpp)
+set(sources QuadRemeshing.cpp quadwildFuncs.cpp)
+set(public_headers QuadRemeshing.hpp quadwildFuncs.hpp)
 set(headers PrivateHeader.hpp)
 set(resources QuadRemeshingResources/welcome.txt)
 # Our library project uses these sources and headers.
@@ -62,3 +62,21 @@ install_target_resources(
     TARGET ${PROJECT_NAME}
     RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/QuadRemeshingResources
 )
+
+include_directories(../libs/quadwild/components/field_computation)
+include_directories(../libs/quadwild/libs/vcglib)
+include_directories(../libs/quadwild/libs/libigl/include)
+include_directories(../libs/quadwild/libs/xfield_tracer)
+include_directories(../libs/quadwild/libs/quadretopology)
+
+add_library( quadwildlib SHARED IMPORTED GLOBAL)
+set_target_properties( quadwildlib PROPERTIES 
+        IMPORTED_LOCATION "${CMAKE_BINARY_DIR}/libs/quadwild/quadwild/libquadwild.so.1")
+
+add_library( quadwildlib1 SHARED IMPORTED GLOBAL)
+set_target_properties( quadwildlib1 PROPERTIES 
+        IMPORTED_LOCATION "${CMAKE_BINARY_DIR}/libs/quadwild/quadwild/libquadwild.so.1.0.0")
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC quadwildlib )
