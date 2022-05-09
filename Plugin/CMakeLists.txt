@@ -57,4 +57,4 @@ target_link_libraries(
 
 # -----------------------------------------------------------------------------------
 # Radium plugin configuration : manage package and installation
-configure_radium_plugin(NAME ${PROJECT_NAME} HELPER_LIBS QuadRemeshing INSTALL_IN_RADIUM_BUNDLE)
+configure_radium_plugin(NAME ${PROJECT_NAME} HELPER_LIBS QuadRemeshing quadwildlib quadwildlib1 INSTALL_IN_RADIUM_BUNDLE)
