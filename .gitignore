@@ -34,3 +34,5 @@
 build/
 build-*/
 .cache/
+
+compile_commands.json
