@@ -71,7 +71,11 @@ include_directories(../libs/quadwild/libs/quadretopology)
 
 add_library( quadwildlib SHARED IMPORTED GLOBAL)
 set_target_properties( quadwildlib PROPERTIES 
-        IMPORTED_LOCATION "${CMAKE_BINARY_DIR}/libs/quadwild/quadwild/libquadwild.so")
+        IMPORTED_LOCATION "${CMAKE_BINARY_DIR}/libs/quadwild/quadwild/libquadwild.so.1")
+
+add_library( quadwildlib1 SHARED IMPORTED GLOBAL)
+set_target_properties( quadwildlib1 PROPERTIES 
+        IMPORTED_LOCATION "${CMAKE_BINARY_DIR}/libs/quadwild/quadwild/libquadwild.so.1.0.0")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
